@@ -2,9 +2,6 @@
 //  QuizBrain.swift
 //  Quizzler-iOS13
 //
-//  Created by Angela Yu on 08/08/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
-//
 
 import Foundation
 
@@ -12,6 +9,7 @@ struct QuizBrain {
     
     var questionNumber = 0
     var score = 0
+    var isEnd = false
     
     let quiz = [
         Question(q: "A slug's blood is green.", a: "True"),
@@ -46,6 +44,7 @@ struct QuizBrain {
             questionNumber += 1
         } else {
             questionNumber = 0
+            isEnd = true
         }
     }
     

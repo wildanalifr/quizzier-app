@@ -2,9 +2,6 @@
 //  ViewController.swift
 //  Quizzler-iOS13
 //
-//  Created by Angela Yu on 12/07/2019.
-//  Copyright © 2019 The App Brewery. All rights reserved.
-//
 
 import UIKit
 
@@ -42,12 +39,22 @@ class ViewController: UIViewController {
     }
     
     @objc func updateUI() {
-        questionLabel.text = quizBrain.getQuestionText()
-        progressBar.progress = quizBrain.getProgress()
-        scoreLabel.text = "Score: \(quizBrain.getScore())"
-        
-        trueButton.backgroundColor = UIColor.clear
-        falseButton.backgroundColor = UIColor.clear
+        if(!quizBrain.isEnd){
+            questionLabel.text = quizBrain.getQuestionText()
+            progressBar.progress = quizBrain.getProgress()
+            scoreLabel.text = "Score: \(quizBrain.getScore())"
+            
+            trueButton.backgroundColor = UIColor.clear
+            falseButton.backgroundColor = UIColor.clear
+        }else{
+            questionLabel.text = "Your finally score is \(quizBrain.getScore())"
+            progressBar.isHidden = true
+            scoreLabel.text = ""
+            
+            trueButton.isHidden = true
+            falseButton.isHidden = true
+
+        }
     }
 
 }
